@@ -35,7 +35,7 @@ export const isVouched = async (address: string) => {
         console.error('GraphQL query failed');
         throw new Error(err);
       });
-    return results.data.data.transactions.edges.length > 0 ? true : false;
+    return await results.data.data.transactions.edges.length > 0 ? true : false;
   }
   catch (error) {
     console.log(error);
