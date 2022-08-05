@@ -10,7 +10,7 @@ const query = (address: string) => {
     query: `
     query {
       transactions(
-        tags:{name:"Vouch-For", values:[${address}]}
+        tags:{name:"Vouch-For", values:["${address}"]}
       ) {
         edges {
           node {
@@ -35,7 +35,7 @@ export const isVouched = async (address: string) => {
         console.error('GraphQL query failed');
         throw new Error(err);
       });
-    return results.data.errors.length > 0 ? false : true;
+    return results.data.edges.length > 0 ? true : false;
   }
   catch (error) {
     console.log(error);
