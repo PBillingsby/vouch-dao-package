@@ -1,7 +1,8 @@
-import { sum } from '../src';
+import { verifiedByVouch } from '../src/contract/src';
 
-describe('blah', () => {
-  it('works', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe('verifiedByVouch', () => {
+  it('returns an object of all vouched addresses', async () => {
+    const res = await verifiedByVouch();
+    console.log("----------------------------------: ", res);
   });
 });
