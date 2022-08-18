@@ -3,7 +3,6 @@
 VouchDAO is for verifying Arweave addresses using the <a href="https://github.com/ArweaveTeam/arweave-standards/blob/ans-109/ans/ANS-109.md">ans-109</a> standard.
 
 ### How to use
-Add the dependencies<br/>
 `npm i vouchdao`<br/>
 
 or</br>
