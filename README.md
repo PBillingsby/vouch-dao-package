@@ -22,6 +22,7 @@ import { isVouched, isVouchedBy } from 'vouchdao'
 ```js
 await isVouched("ARWEAVE_ADDRESS")
 ```
+return value is true or false.
 <hr/>
 
 `isVouchedBy` will check if an Arweave address is vouched by a particular service.
