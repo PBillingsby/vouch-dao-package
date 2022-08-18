@@ -5,7 +5,9 @@ VouchDAO is for verifying Arweave addresses using the <a href="https://github.co
 ### How to use
 
 `npm i vouchdao`
+
 or
+
 `yarn add vouchdao`
 
 ```js
@@ -14,11 +16,12 @@ import { isVouched, isVouchedBy } from 'vouchdao'
 
 `isVouched` will check if an Arweave address is vouched by ANY service.
 
-`isVouchedBy` will check if an Arweave address is vouched by a particular service.
-
 ```js
 await isVouched("ARWEAVE_ADDRESS")
 ```
+
+
+`isVouchedBy` will check if an Arweave address is vouched by a particular service.
 
 ```js
 await isVouchedBy("ARWEAVE_ADDRESS", "VERIFICATION_SERVICE_NAME")
