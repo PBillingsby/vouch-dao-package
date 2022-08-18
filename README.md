@@ -12,10 +12,10 @@ or</br>
 ### Import the functions
 
 ```js
-import { isVouched, isVouchedBy } from 'vouchdao'
+import { isVouched } from 'vouchdao'
 ```
 
-### Calling functions
+### Calling function
 
 `isVouched` will check if an Arweave address is vouched by ANY service.
 
@@ -24,11 +24,3 @@ await isVouched("ARWEAVE_ADDRESS")
 ```
 return value is true or false.
 <hr/>
-
-`isVouchedBy` will check if an Arweave address is vouched by a particular service.
-
-```js
-await isVouchedBy("ARWEAVE_ADDRESS", "VERIFICATION_SERVICE_NAME")
-```
-
-return value is true or false.

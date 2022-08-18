@@ -43,33 +43,36 @@ export const isVouched = async (address: string) => {
   }
 }
 
-export const isVouchedBy = async (address: string, service: string) => {
-  const vouchQuery = query(address);
-  try {
-    const results = await arweave.api.post(`graphql`, vouchQuery)
-      .catch((err: any) => {
-        console.error('GraphQL query failed');
-        throw new Error(err);
-      })
+// @todo: Figure out how to secure these calls
+// anyone can use any "verification method" tags
 
-    const edges: Array<object> = results.data.data.transactions.edges;
-    if (!service || !service.length) {
-      return new Error("Must provide a valid service");
-    }
+// export const isVouchedBy = async (address: string, service: string) => {
+//   const vouchQuery = query(address);
+//   try {
+//     const results = await arweave.api.post(`graphql`, vouchQuery)
+//       .catch((err: any) => {
+//         console.error('GraphQL query failed');
+//         throw new Error(err);
+//       })
 
-    let conditionMet: boolean = false;
-    edges && edges.map((edge: any) => {
-      const verificationTag = edge.node.tags.find((element: any) => element?.name === "Verification-Method")
-      if (verificationTag.value.toLowerCase() === service.toLowerCase()) {
-        conditionMet = true;
-      }
-    })
+//     const edges: Array<object> = results.data.data.transactions.edges;
+//     if (!service || !service.length) {
+//       return new Error("Must provide a valid service");
+//     }
 
-    return conditionMet;
-  }
-  catch (error) {
-    console.log(error);
-    return error
-  }
-}
+//     let conditionMet: boolean = false;
+//     edges && edges.map((edge: any) => {
+//       const verificationTag = edge.node.tags.find((element: any) => element?.name === "Verification-Method")
+//       if (verificationTag.value.toLowerCase() === service.toLowerCase()) {
+//         conditionMet = true;
+//       }
+//     })
+
+//     return conditionMet;
+//   }
+//   catch (error) {
+//     console.log(error);
+//     return error
+//   }
+// }
 
