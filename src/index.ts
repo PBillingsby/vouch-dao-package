@@ -1,16 +1,15 @@
-import { WarpFactory } from 'warp-contracts'
+import { WarpFactory } from 'warp-contracts';
 
 const warp = WarpFactory.forMainnet();
 
-const contract = warp.contract("_z0ch80z_daDUFqC9jHjfOL8nekJcok4ZRkE_UesYsk").connect("use_wallet").setEvaluationOptions({
-  allowBigInt: true
-});
+const contract = warp
+  .contract('_z0ch80z_daDUFqC9jHjfOL8nekJcok4ZRkE_UesYsk')
+  .connect('use_wallet')
+  .setEvaluationOptions({
+    allowBigInt: true,
+  });
 
-const isVouched = async (address: string) => {
+export const isVouched = async (address: string) => {
   const { cachedValue }: any = await contract.readState();
-  return cachedValue.state.vouched[address]
+  return cachedValue.state.vouched[address] !== undefined;
 }
-
-export default isVouched;
-
-
