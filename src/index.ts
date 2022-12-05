@@ -6,8 +6,8 @@ const contract = warp.contract("_z0ch80z_daDUFqC9jHjfOL8nekJcok4ZRkE_UesYsk").co
   allowBigInt: true
 });
 
-const isVouched = async (address) => {
-  const { cachedValue } = await contract.readState();
+const isVouched = async (address: string) => {
+  const { cachedValue }: any = await contract.readState();
   return cachedValue.state.vouched[address]
 }
 
